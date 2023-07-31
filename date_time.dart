@@ -1,3 +1,5 @@
+// To use the date and time in flutter we have to use the intal package of dart, 
+// and we have to implement the current version of intal from pub.dev and also import tntal.dart as shown above
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
