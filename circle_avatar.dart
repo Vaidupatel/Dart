@@ -33,32 +33,24 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    var arrNames = [
-      'ram',
-      'Lakshman',
-      'bharat',
-      'Shatrughna',
-      'vaidik',
-      'nirjal',
-      'prince',
-      'darshan',
-      'sahil'
-    ];
+ 
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
       body: Center(
-          child: CircleAvatar(
-        backgroundColor: Colors.amberAccent,
-        child: Container(
-          width: 90,
-          child: Image.asset("assets/images/ai.png"),
-        ),
-        maxRadius: 50,
-      ) // This trailing comma makes auto-formatting nicer for build methods.
+        child: CircleAvatar(
+          child: Column(
+            children: [
+              Container(width:150,margin: EdgeInsets.only(top: 40),child: Image.asset("assets/images/1.png")),
+              
+            ],
           ),
+          backgroundColor: Colors.black,
+          radius: 100,
+        ),
+      ),
     );
   }
 }
