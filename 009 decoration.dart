@@ -1,57 +1,61 @@
 import 'package:flutter/material.dart';
 
-main() {
-  runApp(App());
+void main() {
+  runApp(const MyApp());
 }
 
-class App extends StatelessWidget {
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "MyApp",
-      theme: ThemeData(primarySwatch: Colors.cyan),
-      home: intro(),
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
+      ),
+      home: const MyHomePage(title: 'Stack Widgets'),
     );
   }
 }
 
-class intro extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key, required this.title});
+
+  final String title;
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("App Bar"),
-      ),
-      body: Container(
-        width: double.infinity,
-        height: double.infinity,
-        color: Colors.blue.shade100,
-        child: Center(
+        appBar: AppBar(
+          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+          title: Text(widget.title),
+        ),
+        body: Center(
           child: Container(
-            width: 150,
-            height: 150,
             decoration: BoxDecoration(
-                color: Colors.blue,
-                // borderRadius: BorderRadius.circular(11)
-                // borderRadius: BorderRadius.only(topLeft: Radius.circular(10),)
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.elliptical(100, 50),
-                    bottomRight: Radius.elliptical(100, 50)),
-                    // border: Border.all(width: 2, color: Colors.black),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.blue.shade500,
-                offset: Offset(0, 0),
-                blurRadius: 100,
-                spreadRadius: 10      ,
-              ),
-            ],
-              // shape: BoxShape.circle,
-              shape: BoxShape.rectangle,
-            )
+              color: Colors.blue,
+              // borderRadius: BorderRadius.circular(30),
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.elliptical(100, 60),
+                  bottomRight: Radius.elliptical(100, 60)),
+              boxShadow: [
+                BoxShadow(
+                    color: Colors.blue.shade300,
+                    blurRadius: 5,
+                    spreadRadius: 5,
+                    offset: Offset(10, 10),
+                    blurStyle: BlurStyle.solid)
+              ],
+            ),
+            height: 200,
+            width: 200,
           ),
-        ),
-        ),
-      );
+        ));
   }
 }
